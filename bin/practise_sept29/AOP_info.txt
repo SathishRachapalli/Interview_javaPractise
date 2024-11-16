@@ -1,0 +1,87 @@
+Aspect oriented programming will takes care of cross cutting concerns in the spring boot application.
+-- Cross cutting concerns are listed below:
+
+1. Logging and Monitoring
+2. Transaction Management
+3. Security
+4. Caching
+5. Exception Handling
+6. Validation
+7. Audit Logging
+
+-------------------------------------------------------------------------------------------------------
+
+1. Logging and Monitoring
+
+-- Tracking method entry and exit points, recording execution times, and logging exceptions.
+-- This will separates a concern of all the logging info of the methods.
+
+@Before("execution(* com.example..*(..))")
+public void logBeforeMethod(JoinPoint joinPoint) {
+    System.out.println("Executing: " + joinPoint.getSignature());
+}
+-------------------------------------------------------------------------------------------------------
+2. Transaction Management 
+
+--Ensures the transaction is happening as per ACID properties
+
+A-- Atomicity
+C-- consistency
+I -- Isolation
+D-- Durability
+
+Spring AOP can manage transactions by defining aspects to start and commit or roll back transactions 
+around methods
+
+@Transactional
+public void performTransaction() {
+    // Transactional operations handled by AOP
+}
+
+
+-------------------------------------------------------------------------------------------------------
+3. Security
+
+Enforcing Authentication and Authorization checks before allows access to certain methods.
+In this way it keeps security code separate from business logic , making the application easier to maintain 
+and more secure.
+
+@Before("execution(* com.example.service.SensitiveService.*(..)) && @annotation(Secured)")
+public void checkUserAuthorization(JoinPoint joinPoint) {
+    // Check if the current user is authorized
+}
+-------------------------------------------------------------------------------------------------------
+
+4. Caching
+
+It performs caching on the methods that we specified.
+separating this concern separately.
+
+@Cacheable("cacheName")
+public Data fetchData(String id) {
+    // Data fetching logic
+}
+
+-------------------------------------------------------------------------------------------------------
+5. Exception Handling
+
+Handling the exceptions consistently, such as logging , wrapping exceptions or sending notifications on failure.
+
+@AfterThrowing(pointcut = "execution(* com.example..*(..))", throwing = "ex")
+public void logException(Exception ex) {
+    System.out.println("Exception occurred: " + ex.getMessage());
+    }
+-------------------------------------------------------------------------------------------------------
+
+6. Validation
+
+@Before("execution(* com.example..*(..)) && args(input)")
+public void validateInput(JoinPoint joinPoint, Object input) {
+    // Validate input parameters
+}
+
+    
+
+
+
+
