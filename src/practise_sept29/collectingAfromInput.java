@@ -10,8 +10,8 @@ public class collectingAfromInput {
 		
 		String input="satishrachapalli";
 		
-		String result=input.chars().mapToObj(c->String.valueOf((char)c)).filter(c->c.equals("a")).
-				collect(Collectors.joining());
+		String result=input.chars().mapToObj(c->String.valueOf((char)c)).filter(c->c.equals("a"))
+				.collect(Collectors.joining());
 		
 		System.out.println(result);
 
