@@ -1,0 +1,43 @@
+
+1.Streams are lazy
+
+* Streams need to have the terminal operators like collect(), forEach(), count() e.t.c.,
+
+----------------------------------------------------------------------------------------------
+2. Streams are immutable in nature.
+
+* The original datasource will not be affected due to streams..
+Eg: int result= myArray.stream().filter(n->n%2==0).count();
+
+The above statement doesn't affects the original data-source of myArray.
+----------------------------------------------------------------------------------------------
+
+3.Once a stream is consumed/completed, we cannot apply another stream on the same completed stream.
+This will results in an Exception in thread "main" java.lang.IllegalStateException: 
+stream has already been operated upon or closed.
+
+Eg:
+
+// Creating a stream and using a terminal operation
+        Stream<String> stream = names.stream();
+long count = stream.count(); // Terminal operation
+        System.out.println("Count: " + count);
+
+        // Trying to reuse the same stream (will throw an exception)
+        // long count2 = stream.count(); // IllegalStateException
+        
+----------------------------------------------------------------------------------------------
+        
+4. Every intermediate operators like map(),filter() etc , produces another stream.
+
+Eg: myArray.stream().filter().map();
+
+* 2 streams in total are produced in the above stream.
+
+----------------------------------------------------------------------------------------------
+
+* Traditional for-loop is faster than the forEach loop in streamAPI.
+
+--------------------------------------------------------------------------------------------
+
+
