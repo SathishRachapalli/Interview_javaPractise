@@ -1,0 +1,20 @@
+Arrays.stream()
+
+Can be used for primitive types to made applicable for usage of java8 StreamAPI(filter(),map(),collect() e.tc.,)
+
+
+EG:
+
+ we can't be directly applying the stream() on int[] like below:
+ 
+ int[] myIntArray={1,2,3};   -- return integer Array;
+ 
+ myIntArray.stream()  --- wrong  -- we cannot apply it directly.
+ 
+ First we need to convert this from primitive array type to wrapper/object type array:
+ To convert like this, Arrays.strea() can be used:
+ 
+ i.e.,
+ Arrays.stream(myIntArray)  -- now we can apply the streamAPI on it.
+ 
+ --------------------------------------------------------------------------------------------------------
