@@ -19,6 +19,13 @@ public class MergeTwoArrays {
 			
 			
 		}).forEach(System.out::println);
+		 
+		 System.out.println("\n\n");
+		 
+		 // this simplification also works
+		 Stream.of(array1,array2)
+		 .flatMap(Arrays::stream)
+		 .forEach(System.out::println);
 
 	}
 
