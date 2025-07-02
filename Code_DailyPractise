@@ -1,0 +1,23 @@
+*****************Always use the functional interfaces using lambda expression first and then 
+use method references to simplify it further************************************************************
+
+String reverse
+Digit sum
+count of characters
+string to uppercase
+characters to uppercase
+duplicates print
+vowel extraction
+frequency
+sorting using comparator - including different types of sortings
+first n highest records/numbers in the arraylist
+merging two arrays using FLATMAP.
+anagram 
+sum using reduce in stream API
+distinct elements or unique elements printing
+iterate every nth element and printing it.
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+
