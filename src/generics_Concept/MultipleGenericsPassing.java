@@ -3,6 +3,9 @@ package generics_Concept;
 
 class Almond
 {
+	
+	
+	//way of using multiple generics from here
 	public static <T,U> void show(T t, U u)
 	{
 		System.out.println(t);
