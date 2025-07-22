@@ -12,7 +12,7 @@ EG:
  myIntArray.stream()  --- wrong  -- we cannot apply it directly.
  
  First we need to convert this from primitive array type to wrapper/object type array:
- To convert like this, Arrays.strea() can be used:
+ To convert like this, Arrays.stream() can be used:
  
  i.e.,
  Arrays.stream(myIntArray)  -- now we can apply the streamAPI on it.
