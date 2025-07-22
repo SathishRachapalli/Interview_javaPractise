@@ -1,0 +1,79 @@
+Java is strictly pass-by-value, but the confusion arises because what is passed as a value differs 
+between primitives and object references.
+
+
+
+What does "pass-by-value" mean?
+
+When a variable is passed to a method, Java passes a copy of the variable's value (i.e., the contents of the variable).
+
+For primitives (like int, double, boolean, etc.): the actual value is passed.
+
+For objects: the value of the reference (i.e., memory address pointing to the object) is passed — not the object itself.
+
+------------------------------------------------------------------------------------------------------------------------
+
+public class PassByValueExample {
+    public static void modifyPrimitive(int num) {
+        num = 100;
+    }
+
+    public static void main(String[] args) {
+        int number = 50;
+        modifyPrimitive(number);
+        System.out.println(number); // Output: 50
+    }
+}
+
+
+number remains 50 because num received a copy of its value. Changing num does not affect number.
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+class Person {
+    String name;
+}
+
+public class PassByValueExample {
+    public static void changeName(Person p) {
+        p.name = "Alice";      // Modifies the object referred to
+        p = new Person();      // Reassigns the reference (has no effect outside) -- here, these changes are happening on stack m/y
+        p.name = "Bob";			// therefore, whatever changes we are doing after creating a new instance, will be happening here only.
+    }
+
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.name = "John";
+
+        changeName(person);
+
+        System.out.println(person.name); // Output: Alice
+    }
+}
+
+--------------------Explanation--------
+Why is the output "Alice", not "Bob"?
+
+
+Java passed a copy of the reference to the changeName method.
+
+Inside the method:
+
+p.name = "Alice" changes the object that the original reference also points to.
+
+p = new Person() changes the local copy of the reference, not the original reference.
+
+So, person.name outside the method remains affected only by "Alice".
+
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+KeyPoint: let us say we have object instance 'obj1' and if we copies and passes the same references of this obj1 to any methods
+, whatever changes in that method is done, will applies the same to the original object instance 'obj1' too.
+
+and this way even though, you are passing the copy of the object , you are passing the ORIGINAL OBJECT REFERENCE also.
+and hence Java is pass by value type.
+
+
